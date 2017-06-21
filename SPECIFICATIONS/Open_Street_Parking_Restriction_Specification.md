@@ -7,7 +7,7 @@ All Rules are singular. Meaning one day, week, or month per rule
 
 |Field | Type | Values | Description | Properties|
 |--|--|--|--|--|
-|**parking**| string| yes = can park, no | can or can't park |
+|**parking**| string| yes, no | yes = can or no = can't park |
 |**type**| string| meter, curb | | 
 |**sideofstreet**| string| N,S,E,W,NW,NE,SE,SW | N - north, S - south, E - east, W - west cordinal direction of placement| |
 |**permit**| string|  commercial, residential, disability, none| type of permit and permit number or value |prop: 'value', null|
