@@ -35,7 +35,8 @@ Metadata| | |
   "parking": [1,0],
   "type": ["Meter", "Curb"],
   "curb_type": { color: string, duration_allowed: integer(minutes) },
-  "sideofstreet":[ 0, 1, 2, 3, 4, 5, 6, 7 ],
+  "sideofstreet":0 -> 7,
+  "orientation": 0 -> 3
   "permit": {type: ["commercial", "residential", "disability", "none"], value: [integer, null]},
 
   "effective":{
