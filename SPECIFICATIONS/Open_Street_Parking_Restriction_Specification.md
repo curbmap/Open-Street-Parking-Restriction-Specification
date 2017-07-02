@@ -10,14 +10,16 @@ Field | Type | Values | Description | Properties
 **geohash**|string| geohash | A 12+ character geohash |
 **parking**| integer | 1, 0 | 1 = yes, can park <br> 0 = cannot park|
 **type**| string| meter, curb |  |
-**side**| integer | N,S,E,W,NE,NW,SE,SW | 0 - north,<br> 1 - south,<br> 2 - east,<br> 3 - west,<br> 4 - northeast,<br> 5 - northwest,<br> 6 - southeast,<br> 7 - southwest |
+**curb_type**| JSON | {color: "", duration_allowed: n} | A description of the curb and its corresponding meaning | color(string), duration_allowed(integer number of minutes allowed to park)
+**side**| integer | 0 - north,<br> 1 - south,<br> 2 - east,<br> 3 - west,<br> 4 - northeast,<br> 5 - northwest,<br> 6 - southeast,<br> 7 - southwest | cardinality |
+**orientation**| integer | 0 = parallel, 1 = perpendicular (head in), 2 = perpendicular (no restriction), 3 = acute (45 degree) | The orientation at which a driver may park |
 **permit**| string|  commercial, residential, disability, none| type of permit and permit number or value |prop: 'value', null
 **days**|string| "0000000" | days rule is active | 0 = not active, 1 = active, First bit is Monday
 **weeks**|string| "0000" | weeks rule is active | 0 = not active, 1 = active, First bit is first week
 **months**| string | "000000000000" | months rule is active | 0=not active, 1 = active, First bit is January
-**start**| string |00:00:00 -> 23:59:59| time of rule start|
-**end**| string |00:00:00 -> 23:59:59| time of rule end|
-**location**|array |geojson |geojson data structure | "type": "Feature", "geometry" "type": "LineString", "coordinates": [[102.0, 0.0], [103.0, 1.0], [104.0, 0.0], [105.0, 1.0]]}
+**start**| integer | 0 -> 1440 | time of rule start(minutes)|
+**end**| integer | 0 -> 1440 | time of rule end (minutes)|
+**location**|array | coordinates only | array of points in [longitude,latitude] format  | [[102.0, 0.0], [103.0, 1.0], [104.0, 0.0], [105.0, 1.0]]
 
 Metadata| | |
 --|--|:--:
@@ -32,7 +34,9 @@ Metadata| | |
   "geohash": "9q5ctr4xf65v"
   "parking": [1,0],
   "type": ["Meter", "Curb"],
-  "sideofstreet":[ 0, 1, 2, 3, 4, 5, 6, 7 ],
+  "curb_type": { color: string, duration_allowed: integer(minutes) },
+  "sideofstreet":0 -> 7,
+  "orientation": 0 -> 3
   "permit": {type: ["commercial", "residential", "disability", "none"], value: [integer, null]},
 
   "effective":{
@@ -42,14 +46,14 @@ Metadata| | |
       "months": "000000000000"  /* All months (year round): 111111111111 */
     },
     "time":{
-      "start": "23:59:59",
-      "end": "23:59:59"
+      "start": "1320", /* 10pm */
+      "end": "1440" /* 12am */
     }
   },
   "location": [[102.0, 0.0], [103.0, 1.0], [104.0, 0.0], [105.0, 1.0]],
   "metadata":{
     "standard": "OSPRS",
-    "version": "0.0.1", 		//required
+    "version": "0.0.0", 		//required
     "license": "Copyright, ...",	    //required
     "timestamp": "",
     "extensions": {
