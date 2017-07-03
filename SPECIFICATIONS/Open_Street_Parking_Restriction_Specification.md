@@ -7,7 +7,7 @@ All Rules are singular. Meaning one day, week, or month per rule
 
 Field | Type | Values | Description | Properties
 --|--|--|--|--|
-**geohash**|string| geohash | A 12+ character geohash |
+**id**|string| open location code | A 12 character plus code, 8 character location + 4 or more further specification | http://openlocationcode.com/<br>https://github.com/google/open-location-code implementations(Apache-2.0 License)
 **parking**| integer | 1, 0 | 1 = yes, can park <br> 0 = cannot park|
 **type**| string| meter, curb |  |
 **curb_type**| JSON | {color: "", duration_allowed: n} | A description of the curb and its corresponding meaning | color(string), duration_allowed(integer number of minutes allowed to park)
@@ -31,7 +31,7 @@ Metadata| | |
 **extensions**| JSON array of objects  municipality [{},...] |
 ```
 "Rule":{
-  "geohash": "9q5ctr4xf65v"
+  "id": ""
   "parking": [1,0],
   "type": ["Meter", "Curb"],
   "curb_type": { color: string, duration_allowed: integer(minutes) },
