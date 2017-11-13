@@ -17,8 +17,8 @@ Field | Type | Values | Description | Properties
 **days**|array (integer)| [0,0,0,0,0,0,0] | days rule is active | 0 = not active, 1 = active, First integer is Monday (starting on left)
 **weeks**|string (integer)| [0,0,0,0] | weeks rule is active | 0 = not active, 1 = active, First integer is first week (starting on left)
 **months**| string (integer) | [0,0,0,0,0,0,0,0,0,0,0,0] | months rule is active | 0=not active, 1 = active, First integer is January (starting on left)
-**start**| integer | 0 -> 1440 | time of rule start(minutes)|
-**end**| integer | 0 -> 1440 | time of rule end (minutes)|
+**start**| integer | 0 -> 1440 | local time of rule start(minutes)|
+**end**| integer | 0 -> 1440 | local time of rule end (minutes)|
 **location**|array | coordinates only | array of points in [longitude,latitude] format  | [[102.0, 0.0], [103.0, 1.0], [104.0, 0.0], [105.0, 1.0]]
 
 Metadata| | |
