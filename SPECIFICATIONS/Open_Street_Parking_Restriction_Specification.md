@@ -1,7 +1,7 @@
 # Open Street Parking Restriction Specification
 ## Definitions
-***All Date / Time / Week formats will be in ISO 8601 standard
-All times represnted in UTC no time zones will be used to alleviate confusion***
+***All timestamps will be in ISO 8601 standard.
+All times represnted in UTC, and no time zones will be used to alleviate confusion***
 
 All Rules are singular. Meaning one day, week, or month per rule
 
@@ -14,11 +14,11 @@ Field | Type | Values | Description | Properties
 **side**| integer | 0 - north,<br> 1 - south,<br> 2 - east,<br> 3 - west,<br> 4 - northeast,<br> 5 - northwest,<br> 6 - southeast,<br> 7 - southwest | cardinality |
 **orientation**| integer | 0 = parallel, 1 = perpendicular (head in), 2 = perpendicular (no restriction), 3 = acute (45 degree) | The orientation at which a driver may park |
 **permit**| string|  commercial, residential, disability, none| type of permit and permit number or value |prop: 'value', null
-**days**|string| "0000000" | days rule is active | 0 = not active, 1 = active, First bit is Monday
-**weeks**|string| "0000" | weeks rule is active | 0 = not active, 1 = active, First bit is first week
-**months**| string | "000000000000" | months rule is active | 0=not active, 1 = active, First bit is January
-**start**| integer | 0 -> 1440 | time of rule start(minutes)|
-**end**| integer | 0 -> 1440 | time of rule end (minutes)|
+**days**|array (integer)| [0,0,0,0,0,0,0] | days rule is active | 0 = not active, 1 = active, First integer is Monday (starting on left)
+**weeks**|string (integer)| [0,0,0,0] | weeks rule is active | 0 = not active, 1 = active, First integer is first week (starting on left)
+**months**| string (integer) | [0,0,0,0,0,0,0,0,0,0,0,0] | months rule is active | 0=not active, 1 = active, First integer is January (starting on left)
+**start**| integer | 0 -> 1440 | local time of rule start(minutes)|
+**end**| integer | 0 -> 1440 | local time of rule end (minutes)|
 **location**|array | coordinates only | array of points in [longitude,latitude] format  | [[102.0, 0.0], [103.0, 1.0], [104.0, 0.0], [105.0, 1.0]]
 
 Metadata| | |
@@ -26,7 +26,7 @@ Metadata| | |
 **Field**| **Description**| **required**
 **standard**| standard of data formatting | *
 **version**| version number of standard| *
-**licence**| copyright or terms of use| *
+**licence**| copyright or terms of use, and this format is being released under the MIT license| *
 **timestamp**| time created or last modified (ISO 8601 Extended Format, UTC)|
 **extensions**| JSON array of objects  municipality [{},...] |
 ```
@@ -54,7 +54,7 @@ Metadata| | |
   "metadata":{
     "standard": "OSPRS",
     "version": "0.0.0", 		//required
-    "license": "Copyright, ...",	    //required
+    "license": "Copyright, ...",	//required
     "timestamp": "",
     "extensions": {
       [{
