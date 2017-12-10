@@ -9,17 +9,46 @@ Field | Type | Values | Description | Properties
 --|--|--|--|--|
 **id**|string| open location code | A >= 12 character plus code, 8 character location + 4 or more further specification | http://openlocationcode.com/<br>https://github.com/google/open-location-code implementations(Apache-2.0 License)
 **parking**| integer | 1, 0 | 1 = yes, can park <br> 0 = cannot park|
-**type**| string| meter, curb |  |
-**curb_type**| JSON | {color: "", duration_allowed: n} | A description of the curb and its corresponding meaning | color(string), duration_allowed(integer number of minutes allowed to park)
+**type**| JSON | {type: integer, duration: integer, permit: signed integer} | A description of the restriction type | type(integer, see type table below), duration(integer number of minutes allowed to park), permit (signed integer see permit table below) 
 **side**| integer | 0 - north,<br> 1 - south,<br> 2 - east,<br> 3 - west,<br> 4 - northeast,<br> 5 - northwest,<br> 6 - southeast,<br> 7 - southwest | cardinality |
 **orientation**| integer | 0 = parallel, 1 = perpendicular (head in), 2 = perpendicular (no restriction), 3 = acute (45 degree) | The orientation at which a driver may park |
-**permit**| string|  commercial, residential, disability, none| type of permit and permit number or value |prop: 'value', null
 **days**|array (integer)| [0,0,0,0,0,0,0] | days rule is active | 0 = not active, 1 = active, First integer is Monday (starting on left)
 **weeks**|string (integer)| [0,0,0,0] | weeks rule is active | 0 = not active, 1 = active, First integer is first week (starting on left)
 **months**| string (integer) | [0,0,0,0,0,0,0,0,0,0,0,0] | months rule is active | 0=not active, 1 = active, First integer is January (starting on left)
 **start**| integer | 0 -> 1440 | local time of rule start(minutes)|
 **end**| integer | 0 -> 1440 | local time of rule end (minutes)|
 **location**|array | coordinates only | array of points in [longitude,latitude] format  | [[102.0, 0.0], [103.0, 1.0], [104.0, 0.0], [105.0, 1.0]]
+
+**Type table**
+
+| Integer value | Associated Restriction                                |
+|---------------|-------------------------------------------------------|
+| 0             | Short time limit (AKA green, <1hr)                    |
+| 1             | Short time limit metered (AKA green with meter, <1hr) |
+| 2             | Time limit (>=1hr )                                   |
+| 3             | Time limit metered (>=1hr)                            |
+| 4             | Time limit with permit exemption                      |
+| 5             | No parking                                            |
+| 6             | No parking with permit exemption                      |
+| 7             | No stopping                                           |
+| 8             | Fire hydrant                                          |
+| 9             | Street cleaning                                       |
+| 10            | Disabled parking                                      |
+| 11            | Passenger loading (AKA white)                         |
+| 12            | Commercial loading (AKA yellow)                       |
+| 13            | Other                                                 |
+
+**Permit table**
+
+| Permits         | Type                                     |
+|-----------------|------------------------------------------|
+| -1              | Commercial                               |
+| -2              | Taxi                                     |
+| -3              | Disabled                                 |
+| -4              | Other                                    |
+| positive values | associated permit number for restriction |
+
+
 
 Metadata| | |
 --|--|:--:
@@ -34,7 +63,7 @@ Metadata| | |
   "id": "85633Q34+CRMM"
   "parking": [1,0],
   "type": ["Meter", "Curb"],
-  "curb_type": { color: string, duration_allowed: integer(minutes) },
+  "curb_type": { type: integer, duration: integer(minutes), permit: signed integer },
   "sideofstreet":0 -> 7,
   "orientation": 0 -> 3
   "permit": {type: ["commercial", "residential", "disability", "none"], value: [integer, null]},
