@@ -63,11 +63,9 @@ Metadata| | |
   "id": "85633Q34+CRMM"
   "parking": [1,0],
   "type": ["Meter", "Curb"],
-  "curb_type": { type: integer, duration: integer(minutes), permit: signed integer },
+  "type": { type: integer, duration: integer(minutes), permit: signed integer },
   "sideofstreet":0 -> 7,
-  "orientation": 0 -> 3
-  "permit": {type: ["commercial", "residential", "disability", "none"], value: [integer, null]},
-
+  "orientation": 0 -> 3,
   "effective":{
     "length":{
       "days": "0000000",    /* Monday = Bit 0 */
