@@ -9,7 +9,7 @@ Field | Type | Values | Description | Properties
 --|--|--|--|--|
 **id**|string| open location code | A >= 12 character plus code, 8 character location + 4 or more further specification | http://openlocationcode.com/<br>https://github.com/google/open-location-code implementations(Apache-2.0 License)
 **parking**| integer | 1, 0 | 1 = yes, can park <br> 0 = cannot park|
-**type**| JSON | {type: integer, duration: integer, permit: signed integer} | A description of the restriction type | type(integer, see type table below), duration(integer number of minutes allowed to park), permit (signed integer see permit table below) 
+**type**| JSON | {type: integer, duration: integer, permit: string} | A description of the restriction type | type(integer, see type table below), duration(integer number of minutes allowed to park), permit(string)
 **side**| integer | 0 - north,<br> 1 - south,<br> 2 - east,<br> 3 - west,<br> 4 - northeast,<br> 5 - northwest,<br> 6 - southeast,<br> 7 - southwest | cardinality |
 **orientation**| integer | 0 = parallel, 1 = perpendicular (head in), 2 = perpendicular (no restriction), 3 = acute (45 degree) | The orientation at which a driver may park |
 **days**|array (integer)| [0,0,0,0,0,0,0] | days rule is active | 0 = not active, 1 = active, First integer is Monday (starting on left)
@@ -40,13 +40,13 @@ Field | Type | Values | Description | Properties
 
 **Permit table**
 
-| Permits         | Type                                     |
-|-----------------|------------------------------------------|
-| -1              | Commercial                               |
-| -2              | Taxi                                     |
-| -3              | Disabled                                 |
-| -4              | Other                                    |
-| positive values | associated permit number for restriction |
+| Permits                                  |
+|------------------------------------------|
+| Commercial                               |
+| Taxi                                     |
+| Disabled                                 |
+| Other                                    |
+| Permit name for restriction              |
 
 
 
@@ -63,7 +63,7 @@ Metadata| | |
   "id": "85633Q34+CRMM"
   "parking": [1,0],
   "type": ["Meter", "Curb"],
-  "type": { type: integer, duration: integer(minutes), permit: signed integer },
+  "type": { type: integer, duration: integer(minutes), permit: "1" }, /* since some cities like SF use Letters */
   "sideofstreet":0 -> 7,
   "orientation": 0 -> 3,
   "effective":{
