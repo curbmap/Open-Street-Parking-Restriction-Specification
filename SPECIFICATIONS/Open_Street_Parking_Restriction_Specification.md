@@ -79,6 +79,7 @@ Metadata| | |
     }
   },
   "location": [[102.0, 0.0], [103.0, 1.0], [104.0, 0.0], [105.0, 1.0]],
+  "holiday" : False,
   "metadata":{
     "standard": "OSPRS",
     "version": "0.0.0", 		//required
