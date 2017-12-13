@@ -1,7 +1,7 @@
 # Open Street Parking Restriction Specification
 ## Definitions
 ***All timestamps will be in ISO 8601 standard.
-All times represnted in UTC, and no time zones will be used to alleviate confusion***
+All times represented in UTC, and no time zones will be used to alleviate confusion***
 
 All Rules are singular. Meaning one day, week, or month per rule
 
