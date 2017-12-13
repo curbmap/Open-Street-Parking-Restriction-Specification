@@ -80,13 +80,13 @@ Metadata| | |
   "angle": 0 -> 3,
   "effective":{
     "length":{
-      "days": "0000000",    /* Monday = Bit 0 */
-      "weeks": "0000",   /* First thursday of month = days: 0001000 weeks: 1000 */
-      "months": "000000000000"  /* All months (year round): 111111111111 */
+      "days": [0,0,0,0,0,0,0],    /* Monday = Bit 0 */
+      "weeks": [0,0,0,0],   /* First thursday of month = days: [0,0,0,1,0,0,0] weeks: [1,0,0,0] */
+      "months": [0,0,0,0,0,0,0,0,0,0,0,0]  /* All months (year round): [1,1,1,1,1,1,1,1,1,1,1,1] */
     },
     "time":{
-      "start": "1320", /* 10pm */
-      "end": "1440" /* 12am */
+      "start": 1320, /* 10pm */
+      "end": 1440 /* 12am */
     }
   },
   "location": [[102.0, 0.0], [103.0, 1.0], [104.0, 0.0], [105.0, 1.0]],
