@@ -23,7 +23,7 @@ All Rules are singular. Meaning one day, week, or month per rule
 | **end**          | integer           | 0 -> 1440                                                                                                                        | local time of rule end (minutes)                                                    |
 | **location**     | array             | coordinates only                                                                                                                 | array of points in [longitude,latitude] format                                      | [[102.0, 0.0], [103.0, 1.0], [104.0, 0.0], [105.0, 1.0]]                                                         |
 | **holiday**      | bit               | 1/0                                                                                                                              | enforced during holidays = 1, not enforced during city celebrated holidays          | True or False                                                                                                    |
-| **vehicle_type** | integer           | 0 -> 3                                                                                                                           | vehicle type allowed                                                                | From vehicle type table below                                                                                    |
+| **vehicle_type** | integer           | -1 -> 3                                                                                                                           | vehicle type allowed                                                                | From vehicle type table below, -1 meaning all vehicles                                                           |
 
 **Type table**
 
@@ -58,7 +58,8 @@ All Rules are singular. Meaning one day, week, or month per rule
 
 | Integer | Type                                                    |
 | ------- | ------------------------------------------------------- |
-| 0       | Car, Truck (2 axel), Non-inhabiting                     |
+| -1      | All vehicle types                                       |
+| 0       | Car, Truck (2 axel), Non-inhabiting                     |
 | 1       | Motorcycle                                              |
 | 2       | Truck, Bus (3+ axel, including trailer), Non-inhabiting |
 | 3       | Vehicle for inhabitation (Camper, Car, Truck, etc.)     |
