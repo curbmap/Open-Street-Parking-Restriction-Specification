@@ -34,10 +34,10 @@ All Rules are singular. Meaning one day, week, or month per rule
 | 2             | Time limit (>=1hr )                                   |
 | 3             | Time limit metered (>=1hr)                            |
 | 4             | Time limit with permit exemption                      |
-| 5             | No parking                                            |
-| 6             | No parking with permit exemption                      |
-| 7             | No stopping                                           |
-| 8             | Fire hydrant                                          |
+| 5             | Time limit metered with permit exemption              |
+| 6             | No parking                                            |
+| 7             | No parking with permit exemption                      |
+| 8             | No stopping                                           |
 | 9             | Street cleaning                                       |
 | 10            | Disabled parking                                      |
 | 11            | Passenger loading (AKA white)                         |
