@@ -1,16 +1,19 @@
-summary: a line of points 
-required: 
-  - coordinates
-  - restrictions
-properties:
-  coordinates:
-    type: array
-    items:
-      type: array
-      items:
-        type: number
-  restrictions:
-    type: array
-    items:
-      type: object
-      $ref: "#components/schemas/restriction"
+components:
+  schemas:
+    line:
+      summary: a line of points 
+      required: 
+        - coordinates
+        - restrictions
+      properties:
+        coordinates:
+          type: array
+          items:
+            type: array
+            items:
+              type: number
+        restrictions:
+          type: array
+          items:
+            type: object
+            $ref: "https://raw.githubusercontent.com/curbmap/Open-Street-Parking-Restriction-Specification/master/examples-swagger/restriction.yaml"
