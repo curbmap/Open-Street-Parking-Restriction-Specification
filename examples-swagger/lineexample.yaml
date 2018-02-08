@@ -1,16 +1,16 @@
-  summary: a line of points 
-  required: 
-    - coordinates
-    - restrictions
-  properties:
-    coordinates:
+summary: a line of points 
+required: 
+  - coordinates
+  - restrictions
+properties:
+  coordinates:
+    type: array
+    items:
       type: array
       items:
-        type: array
-        items:
-          type: number
-    restrictions:
-      type: array
-      items:
-        type: object
-        $ref: "#components/schemas/restriction"
+        type: number
+  restrictions:
+    type: array
+    items:
+      type: object
+      $ref: "#components/schemas/restriction"
