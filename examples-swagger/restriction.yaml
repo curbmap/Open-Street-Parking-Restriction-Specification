@@ -1,108 +1,106 @@
-components:
-  schemas:
-    restriction:
-      summary: a restriction attached to a line
-      required:
-        - type
-        - angle
-        - start
-        - end
-        - days
-        - weeks
-        - months
-        - vehicle
-        - side
-    properties:
-      type:
-        type: integer
-      angle:
-        type: integer
-      start:
-        type: integer
-      end:
-        type: integer
-      days:
-        type: array
-        required: true
-        items: boolean
-        default: 
-          - false
-          - false
-          - false
-          - false
-          - false
-          - false
-          - false
-        example: 
-          - false
-          - false
-          - false
-          - false
-          - false
-          - false
-          - false
-      weeks:
-        type: array
-        required: true
-        items: boolean
-        default: 
-          - false
-          - false
-          - false
-          - false
-        example: 
-          - false
-          - false
-          - false
-          - false
-      months:
-        type: array
-        required: true
-        items: boolean
-        default: 
-          - false
-          - false
-          - false
-          - false
-          - false
-          - false
-          - false
-          - false
-          - false
-          - false
-          - false
-          - false
-        example: 
-          - false
-          - false
-          - false
-          - false
-          - false
-          - false
-          - false
-          - false
-          - false
-          - false
-          - false
-          - false
-      limit:
-        type: integer
-        example:
-          60 
-        description: time limit for parking
-      permit:
-        type: string
-        example:
-          "111" # example of district parking string
-      cost:
-        type: number
-        example: 1.25 # example 1.25 / per amount
-      per:
-        type: integer
-        example: 60 # 1.25 for one hour at a meter
-      vehicle:
-        type: integer
-        example: 0
-      side: 
-        type: integer
-        example: 0 # North
+restriction:
+  summary: a restriction attached to a line
+  required:
+    - type
+    - angle
+    - start
+    - end
+    - days
+    - weeks
+    - months
+    - vehicle
+    - side
+properties:
+  type:
+    type: integer
+  angle:
+    type: integer
+  start:
+    type: integer
+  end:
+    type: integer
+  days:
+    type: array
+    required: true
+    items: boolean
+    default: 
+      - false
+      - false
+      - false
+      - false
+      - false
+      - false
+      - false
+    example: 
+      - false
+      - false
+      - false
+      - false
+      - false
+      - false
+      - false
+  weeks:
+    type: array
+    required: true
+    items: boolean
+    default: 
+      - false
+      - false
+      - false
+      - false
+    example: 
+      - false
+      - false
+      - false
+      - false
+  months:
+    type: array
+    required: true
+    items: boolean
+    default: 
+      - false
+      - false
+      - false
+      - false
+      - false
+      - false
+      - false
+      - false
+      - false
+      - false
+      - false
+      - false
+    example: 
+      - false
+      - false
+      - false
+      - false
+      - false
+      - false
+      - false
+      - false
+      - false
+      - false
+      - false
+      - false
+  limit:
+    type: integer
+    example:
+      60 
+    description: time limit for parking
+  permit:
+    type: string
+    example:
+      "111" # example of district parking string
+  cost:
+    type: number
+    example: 1.25 # example 1.25 / per amount
+  per:
+    type: integer
+    example: 60 # 1.25 for one hour at a meter
+  vehicle:
+    type: integer
+    example: 0
+  side: 
+    type: integer
+    example: 0 # North
